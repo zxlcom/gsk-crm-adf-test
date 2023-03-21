@@ -1,0 +1,9 @@
+{
+	"name": "GSK-CRM-ADF-TEST-ONE",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "88ec8487-cb4b-471d-a926-8ec1878ea0e6",
+		"tenantId": "c2fffae8-75c8-4a1c-939b-47bd49e71597"
+	}
+}

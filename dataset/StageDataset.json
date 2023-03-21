@@ -1,0 +1,16 @@
+{
+	"name": "StageDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StageLinkService",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "stage"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
