@@ -1,0 +1,26 @@
+{
+	"name": "pre_crm_contact_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "contactid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_hcpid",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_contact"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

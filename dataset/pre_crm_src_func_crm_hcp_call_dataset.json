@@ -1,0 +1,91 @@
+{
+	"name": "pre_crm_src_func_crm_hcp_call_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "hcp_call_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hco_call_id",
+				"type": "varchar"
+			},
+			{
+				"name": "hcp_id",
+				"type": "varchar"
+			},
+			{
+				"name": "hcp_inst_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "specialty",
+				"type": "nvarchar"
+			},
+			{
+				"name": "call_type",
+				"type": "varchar"
+			},
+			{
+				"name": "hcp_call_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hcp_call_duration",
+				"type": "varchar"
+			},
+			{
+				"name": "is_coaching",
+				"type": "varchar"
+			},
+			{
+				"name": "coaching_manager_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "create_by",
+				"type": "varchar"
+			},
+			{
+				"name": "create_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "last_update_by",
+				"type": "varchar"
+			},
+			{
+				"name": "last_update_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "is_active",
+				"type": "varchar"
+			},
+			{
+				"name": "call_status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "etl_checksum",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_src_func_crm_hcp_call"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,30 @@
+{
+	"name": "pre_action_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "table_name",
+				"type": "varchar"
+			},
+			{
+				"name": "id",
+				"type": "varchar"
+			},
+			{
+				"name": "action",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_action"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

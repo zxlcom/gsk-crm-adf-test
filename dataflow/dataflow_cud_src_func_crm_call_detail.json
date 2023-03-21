@@ -1,0 +1,108 @@
+{
+	"name": "dataflow_cud_src_func_crm_call_detail",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "pre_action_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "getDeleteInfo"
+				},
+				{
+					"linkedService": {
+						"referenceName": "stage_link_service",
+						"type": "LinkedServiceReference"
+					},
+					"name": "getUpsertInfo"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "target_src_func_crm_call_detail_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "deleteTargetData"
+				},
+				{
+					"dataset": {
+						"referenceName": "target_src_func_crm_call_detail_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "upsertTargetData"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterDelete"
+				},
+				{
+					"name": "alterUpsert"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          table_name as string,",
+				"          id as string,",
+				"          action as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     query: 'SELECT id, action FROM pre_action pa WHERE pa.table_name = \\'crm_call_detail\\' AND pa.action = \\'DELETE\\'',",
+				"     format: 'query') ~> getDeleteInfo",
+				"source(output(",
+				"          call_detail_id as string,",
+				"          hcp_call_id as string,",
+				"          brand_code_crm as string,",
+				"          priority as string,",
+				"          has_keymessage as string,",
+				"          has_mediaplay as string,",
+				"          duration as string,",
+				"          self_evaluation as string,",
+				"          create_by as string,",
+				"          create_date as timestamp,",
+				"          last_update_by as string,",
+				"          last_update_date as timestamp,",
+				"          is_active as string,",
+				"          etl_checksum as integer,",
+				"          action as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'query',",
+				"     store: 'sqlserver',",
+				"     query: 'SELECT t.*, pa.action \\nFROM pre_action pa\\n    LEFT JOIN pre_crm_src_func_crm_call_detail t ON pa.table_name = \\'src_func_crm_call_detail\\' AND pa.id = t.call_detail_id\\nWHERE pa.action = \\'INSERT\\' OR pa.action = \\'UPDATE\\'',",
+				"     isolationLevel: 'READ_UNCOMMITTED') ~> getUpsertInfo",
+				"getDeleteInfo alterRow(deleteIf(action==\"DELETE\")) ~> alterDelete",
+				"getUpsertInfo alterRow(upsertIf(action==\"INSERT\"||action==\"UPDATE\")) ~> alterUpsert",
+				"alterDelete sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:true,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     keys:['call_detail_id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          call_detail_id = id",
+				"     )) ~> deleteTargetData",
+				"alterUpsert sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['call_detail_id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> upsertTargetData"
+			]
+		}
+	}
+}

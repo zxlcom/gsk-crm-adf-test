@@ -1,0 +1,9 @@
+{
+	"name": "crm-to-cdm",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8c39f5a0-0a2b-4ba5-80f0-b6c7e9c20e8d",
+		"tenantId": "c2fffae8-75c8-4a1c-939b-47bd49e71597"
+	}
+}

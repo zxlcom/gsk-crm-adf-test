@@ -1,0 +1,22 @@
+{
+	"name": "source_contact_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "source_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Contact.xlsx",
+				"container": "mock-crm-dataverse"
+			},
+			"sheetIndex": 0,
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

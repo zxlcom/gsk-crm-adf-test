@@ -1,0 +1,123 @@
+{
+	"name": "source_gsk_professionaltitle_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "source_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "gsk_professionaltitle.xlsx",
+				"container": "mock-crm-dataverse"
+			},
+			"sheetIndex": 0,
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "createdby",
+				"type": "String"
+			},
+			{
+				"name": "createdbyname",
+				"type": "String"
+			},
+			{
+				"name": "createdon",
+				"type": "String"
+			},
+			{
+				"name": "createdonbehalfby",
+				"type": "String"
+			},
+			{
+				"name": "createdonbehalfbyname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_code",
+				"type": "String"
+			},
+			{
+				"name": "gsk_englishname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_name",
+				"type": "String"
+			},
+			{
+				"name": "gsk_professionaltitleid",
+				"type": "String"
+			},
+			{
+				"name": "importsequencenumber",
+				"type": "String"
+			},
+			{
+				"name": "modifiedby",
+				"type": "String"
+			},
+			{
+				"name": "modifiedbyname",
+				"type": "String"
+			},
+			{
+				"name": "modifiedon",
+				"type": "String"
+			},
+			{
+				"name": "modifiedonbehalfby",
+				"type": "String"
+			},
+			{
+				"name": "modifiedonbehalfbyname",
+				"type": "String"
+			},
+			{
+				"name": "organizationid",
+				"type": "String"
+			},
+			{
+				"name": "organizationidname",
+				"type": "String"
+			},
+			{
+				"name": "overriddencreatedon",
+				"type": "String"
+			},
+			{
+				"name": "statecode",
+				"type": "String"
+			},
+			{
+				"name": "statecodename",
+				"type": "String"
+			},
+			{
+				"name": "statuscode",
+				"type": "String"
+			},
+			{
+				"name": "statuscodename",
+				"type": "String"
+			},
+			{
+				"name": "timezoneruleversionnumber",
+				"type": "String"
+			},
+			{
+				"name": "utcconversiontimezonecode",
+				"type": "String"
+			},
+			{
+				"name": "versionnumber",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

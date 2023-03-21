@@ -1,0 +1,50 @@
+{
+	"name": "pre_crm_gsk_specialhco_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "gsk_specialhcoid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_hcoid",
+				"type": "varchar"
+			},
+			{
+				"name": "createdby",
+				"type": "varchar"
+			},
+			{
+				"name": "createdon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "modifiedby",
+				"type": "varchar"
+			},
+			{
+				"name": "modifiedon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "statecode",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_gsk_specialhco"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

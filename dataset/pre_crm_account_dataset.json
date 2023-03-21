@@ -1,0 +1,118 @@
+{
+	"name": "pre_crm_account_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "accountid",
+				"type": "varchar"
+			},
+			{
+				"name": "accountnumber",
+				"type": "varchar"
+			},
+			{
+				"name": "name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_provinceid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_cityid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_countyid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_instgrade",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_instgradelevel",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_insttype",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_insttypel1",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_insttypel2",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_insttypel3",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_insttypel4",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_economictype",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_countyflag",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_militaryflag",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_medicareflag",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_uscc",
+				"type": "varchar"
+			},
+			{
+				"name": "address1_line1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "address1_longitude",
+				"type": "varchar"
+			},
+			{
+				"name": "address1_latitude",
+				"type": "varchar"
+			},
+			{
+				"name": "telephone1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "address1_postalcode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_coldchainflag",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_tnprflag",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_account"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

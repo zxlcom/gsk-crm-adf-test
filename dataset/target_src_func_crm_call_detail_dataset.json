@@ -1,0 +1,17 @@
+{
+	"name": "target_src_func_crm_call_detail_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "target_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "public",
+			"table": "src_func_crm_call_detail"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

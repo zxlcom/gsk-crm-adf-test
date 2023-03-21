@@ -1,0 +1,1695 @@
+{
+	"name": "PL_CRM2CDM_src_func_crm_hco_hcp_call",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_from_source_gsk_call",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_crm_gsk_call",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "gsk_callid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_callid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_callcode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_callcode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_submitby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_submitby",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_territorycode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_territorycode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_parentcallid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_parentcallid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_customerid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_customerid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_accountnumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_accountnumber",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_specialty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_specialty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_calltype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_calltype",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_coachingflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_coachingflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_coachingmanagerid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_coachingmanagerid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_product",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_product",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinstate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinstate",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkindate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkindate",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinlongitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinlongitude",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinlatitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinlatitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_hospitallongitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_hospitallongitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_hospitallatitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_hospitallatitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinrange",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinrange",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_isvalidcheckin",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_isvalidcheckin",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_datetime",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_datetime",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_duration",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_submitdate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_submitdate",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "createdby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "createdby",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "createdon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "createdon",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "modifiedby",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "modifiedon",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "statuscode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statuscode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "source_gsk_call_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_gsk_call_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "trans_to_src_func_crm_hco_call",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "copy_from_source_gsk_call",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT\n\tgsk_callcode hco_call_code,\n\tgsk_submitby owner_mudid,\n\tgsk_territorycode territory_code,\n\tgsk_accountnumber inst_code,\n\tgsk_calltype call_type,\n\tgsk_checkinstate checkin_status,\n\tgsk_checkindate check_in_date,\n\tgsk_checkinlongitude check_in_longitude,\n\tgsk_checkinlatitude check_in_latitude,\n\tgsk_hospitallongitude hospital_longitude,\n\tgsk_hospitallatitude hospital_latitude,\n\tgsk_checkinrange checkin_range,\n\tgsk_isvalidcheckin gps_valid,\n\tgsk_datetime hco_call_date,\n\tgsk_duration hco_call_duration,\n\tgsk_submitdate submit_date,\n\tUPPER(createdby) create_by,\n\tcreatedon  create_date,\n\tUPPER(modifiedby) last_update_by,\n\tmodifiedon last_update_date,\n\tCASE WHEN statecode = '0' then 'Y' ELSE 'N' END  is_active,\n\tstatuscode hco_call_status\nFROM\n\tpre_crm_gsk_call WHERE gsk_parentcallid IS NULL\n",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_crm_src_func_crm_hco_call",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "hco_call_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hco_call_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "owner_mudid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "owner_mudid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "territory_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "territory_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "inst_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "inst_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checkin_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "checkin_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "check_in_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "check_in_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "check_in_longitude",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "check_in_longitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "check_in_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "check_in_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hospital_longitude",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "hospital_longitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hospital_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "hospital_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checkin_range",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "checkin_range",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gps_valid",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "gps_valid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hco_call_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "hco_call_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "submit_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "submit_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hco_call_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "pre_crm_gsk_call_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_src_func_crm_hco_call_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "trans_to_src_func_crm_hcp_call",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "cud_src_func_crm_hco_call",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT\n\tp.gsk_callcode hcp_call_id,\n\to.gsk_callcode hco_call_id,\n\tac.ownerid hcp_id,\n\tp.gsk_accountnumber hcp_inst_code,\n\tp.gsk_specialty specialty,\n\tp.gsk_calltype call_type,\n\tp.gsk_datetime hcp_call_date,\n\tp.gsk_duration hcp_call_duration,\n\tp.gsk_coachingflag is_coaching,\n\tUPPER(p.gsk_coachingmanagerid) coaching_manager_id,\n\tUPPER(p.createdby) create_by,\n\tp.createdon  create_date,\n\tUPPER(p.modifiedby) last_update_by,\n\tp.modifiedon last_update_date,\n\tCASE WHEN p.statecode = '0' then 'Y' ELSE 'N' END  is_active,\n\tp.statuscode call_status\nFROM pre_crm_gsk_call p \n\tLEFT JOIN pre_crm_gsk_call o ON p.gsk_parentcallid = o.gsk_callid\n\tLEFT JOIN pre_crm_account ac ON p.gsk_customerid = ac.accountid \nWHERE p.gsk_parentcallid IS NOT NULL",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_crm_src_func_crm_hcp_call",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hco_call_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_id",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "hcp_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_inst_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hcp_inst_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "specialty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "specialty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_call_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hcp_call_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_call_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "hcp_call_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "is_coaching",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "is_coaching",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "coaching_manager_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "coaching_manager_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "call_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "call_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "pre_crm_gsk_call_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_src_func_crm_hcp_call_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "copy_from_target_src_func_crm_hco_call",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "trans_to_src_func_crm_hco_call",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_cdm_src_func_crm_hco_call",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "hco_call_code",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hco_call_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "owner_mudid",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "owner_mudid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "territory_code",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "territory_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "inst_code",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "inst_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checkin_status",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "checkin_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "check_in_date",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "check_in_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "check_in_longitude",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "check_in_longitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "check_in_latitude",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "check_in_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hospital_longitude",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hospital_longitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hospital_latitude",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hospital_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checkin_range",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "checkin_range",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gps_valid",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "gps_valid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_date",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hco_call_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_duration",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hco_call_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "submit_date",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "submit_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								},
+								"sink": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								},
+								"sink": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_status",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hco_call_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "target_src_func_crm_hco_call_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_cdm_src_func_crm_hco_call_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "copy_from_target_src_func_crm_hcp_call",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "trans_to_src_func_crm_hcp_call",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_cdm_src_func_crm_hcp_call",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hco_call_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hco_call_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hcp_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_inst_code",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hcp_inst_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "specialty",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "specialty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "call_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_call_date",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hcp_call_date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_call_duration",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hcp_call_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "is_coaching",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "is_coaching",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "coaching_manager_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "coaching_manager_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								},
+								"sink": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								},
+								"sink": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "call_status",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "call_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "target_src_func_crm_hcp_call_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_cdm_src_func_crm_hcp_call_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "check_hco_call_cud",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "copy_from_target_src_func_crm_hco_call",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[check_cdm_table_cud]",
+					"storedProcedureParameters": {
+						"check_cols": {
+							"value": "owner_mudid, territory_code, inst_code, call_type, checkin_status, check_in_date, check_in_longitude, check_in_latitude, hospital_longitude, hospital_latitude, checkin_range, gps_valid, hco_call_date, hco_call_duration, submit_date, is_active, hco_call_status",
+							"type": "String"
+						},
+						"key_col": {
+							"value": "hco_call_code",
+							"type": "String"
+						},
+						"table_name": {
+							"value": "src_func_crm_hco_call",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "stage_link_service",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "check_hcp_call_cud",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "copy_from_target_src_func_crm_hcp_call",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[check_cdm_table_cud]",
+					"storedProcedureParameters": {
+						"check_cols": {
+							"value": "hcp_id, hcp_inst_code, specialty, call_type, hcp_call_date, hcp_call_duration, is_coaching, coaching_manager_id, is_active, call_status",
+							"type": "String"
+						},
+						"key_col": {
+							"value": "hcp_call_id",
+							"type": "String"
+						},
+						"table_name": {
+							"value": "src_func_crm_hcp_call",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "stage_link_service",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "cud_src_func_crm_hco_call",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "check_hco_call_cud",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow_cud_src_func_crm_hco_call",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "cud_src_func_crm_hcp_call",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "check_hcp_call_cud",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow_cud_src_func_crm_hcp_call",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-03-10T06:55:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,79 @@
+{
+	"name": "pre_crm_src_func_crm_call_detail_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "call_detail_id",
+				"type": "varchar"
+			},
+			{
+				"name": "hcp_call_id",
+				"type": "varchar"
+			},
+			{
+				"name": "brand_code_crm",
+				"type": "varchar"
+			},
+			{
+				"name": "priority",
+				"type": "varchar"
+			},
+			{
+				"name": "has_keymessage",
+				"type": "varchar"
+			},
+			{
+				"name": "has_mediaplay",
+				"type": "varchar"
+			},
+			{
+				"name": "duration",
+				"type": "varchar"
+			},
+			{
+				"name": "self_evaluation",
+				"type": "varchar"
+			},
+			{
+				"name": "create_by",
+				"type": "varchar"
+			},
+			{
+				"name": "create_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "last_update_by",
+				"type": "varchar"
+			},
+			{
+				"name": "last_update_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "is_active",
+				"type": "varchar"
+			},
+			{
+				"name": "etl_checksum",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_src_func_crm_call_detail"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

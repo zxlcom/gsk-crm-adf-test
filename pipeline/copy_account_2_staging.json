@@ -1,0 +1,414 @@
+{
+	"name": "copy_account_2_staging",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_account_2_staging",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_crm_account",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "accountid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "accountid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "accountnumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "accountnumber",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_provinceid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_provinceid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_cityid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_cityid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_countyid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_countyid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_instgrade",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_instgrade",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_instgradelevel",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_instgradelevel",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_insttype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_insttype",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_insttypel1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_insttypel1",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_insttypel2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_insttypel2",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_insttypel3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_insttypel3",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_insttypel4",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_insttypel4",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_economictype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_economictype",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_countyflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_countyflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_militaryflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_militaryflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_medicareflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_medicareflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_uscc",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_uscc",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "address1_line1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "address1_line1",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "address1_longitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "address1_longitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "address1_latitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "address1_latitude",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "telephone1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "telephone1",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "address1_postalcode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "address1_postalcode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_coldchainflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_coldchainflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_tnprflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_tnprflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "statuscode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statuscode",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_cdmcreatedon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_cdmcreatedon",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_cdmmodifiedon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_cdmmodifiedon",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "source_account_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_account_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "CopyCRM2Staging"
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-03-14T06:56:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

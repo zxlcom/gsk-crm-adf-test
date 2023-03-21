@@ -1,0 +1,717 @@
+{
+	"name": "PL_CRM2CDM_src_func_crm_call_detail",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_from_source_gsk_calldetail",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_crm_gsk_calldetail",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "gsk_calldetailid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_calldetailid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_callid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_callid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_crmbrandid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_crmbrandid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_priority",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_priority",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_haskeymessage",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_haskeymessage",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_hasmediaplay",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_hasmediaplay",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_duration",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_selfevaluation",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_selfevaluation",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "createdby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "createdby",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "createdon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "createdon",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "modifiedby",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "modifiedon",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "source_gsk_calldetail_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_gsk_calldetail_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "copy_from_target_src_func_crm_call_detail",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "copy_from_source_gsk_calldetail",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_cdm_src_func_crm_call_detail",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "call_detail_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "call_detail_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "brand_code_crm",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "brand_code_crm",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "priority",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "priority",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "has_keymessage",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "has_keymessage",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "has_mediaplay",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "has_mediaplay",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "duration",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "self_evaluation",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "self_evaluation",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								},
+								"sink": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								},
+								"sink": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "target_src_func_crm_call_detail_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_cdm_src_func_crm_call_detail_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "cud_src_func_crm_call_detail",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "check_cud",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow_cud_src_func_crm_call_detail",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "trans_crm_to_cdm",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "copy_from_target_src_func_crm_call_detail",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT\n\tcd.gsk_calldetailid call_detail_id,\n\tcd.gsk_callid hcp_call_id,\n\tbrand.gsk_crmbrandcode brand_code_crm,\n\tcd.gsk_priority priority,\n\tcd.gsk_haskeymessage has_keymessage,\n\tcd.gsk_hasmediaplay has_mediaplay,\n\tcd.gsk_duration duration,\n\tcd.gsk_selfevaluation self_evaluation,\n\tUPPER(cd.createdby) create_by,\n\tcd.createdon  create_date,\n\tUPPER(cd.modifiedby) last_update_by,\n\tcd.modifiedon last_update_date,\n\tCASE WHEN cd.statecode = '0' then 'Y' ELSE 'N' END  is_active\nFROM\n\tpre_crm_gsk_calldetail cd \n    left join pre_crm_gsk_crmbrand brand ON cd.gsk_crmbrandid = brand.gsk_crmbrandid ",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE pre_crm_src_func_crm_call_detail",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "call_detail_id",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "call_detail_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "hcp_call_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "brand_code_crm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "brand_code_crm",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "priority",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "priority",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "has_keymessage",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "has_keymessage",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "has_mediaplay",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "has_mediaplay",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "duration",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "duration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "self_evaluation",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "self_evaluation",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "create_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "create_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "last_update_by",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "last_update_date",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "is_active",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "pre_cdm_gsk_calldetail_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_src_func_crm_call_detail_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "check_cud",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "trans_crm_to_cdm",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[check_cdm_table_cud]",
+					"storedProcedureParameters": {
+						"check_cols": {
+							"value": "hcp_call_id, brand_code_crm, priority, has_keymessage, has_mediaplay, duration, self_evaluation, is_active",
+							"type": "String"
+						},
+						"key_col": {
+							"value": "call_detail_id",
+							"type": "String"
+						},
+						"table_name": {
+							"value": "src_func_crm_call_detail",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "stage_link_service",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-03-09T14:28:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

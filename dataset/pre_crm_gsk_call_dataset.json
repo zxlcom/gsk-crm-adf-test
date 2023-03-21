@@ -1,0 +1,138 @@
+{
+	"name": "pre_crm_gsk_call_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "gsk_callid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_callcode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_submitby",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_territorycode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_parentcallid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_customerid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_accountnumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_specialty",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_calltype",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_coachingflag",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_coachingmanagerid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_checkinstate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_checkindate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_checkinlongitude",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_checkinlatitude",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_hospitallongitude",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_hospitallatitude",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_checkinrange",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_isvalidcheckin",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_datetime",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gsk_duration",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_submitdate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "createdby",
+				"type": "varchar"
+			},
+			{
+				"name": "createdon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "modifiedby",
+				"type": "varchar"
+			},
+			{
+				"name": "modifiedon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "statecode",
+				"type": "varchar"
+			},
+			{
+				"name": "statuscode",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_gsk_call"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

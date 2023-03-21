@@ -1,0 +1,1015 @@
+{
+	"name": "source_account_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "source_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Account.xlsx",
+				"container": "mock-crm-dataverse"
+			},
+			"sheetIndex": 0,
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "accountcategorycode",
+				"type": "String"
+			},
+			{
+				"name": "accountcategorycodename",
+				"type": "String"
+			},
+			{
+				"name": "accountclassificationcode",
+				"type": "String"
+			},
+			{
+				"name": "accountclassificationcodename",
+				"type": "String"
+			},
+			{
+				"name": "accountid",
+				"type": "String"
+			},
+			{
+				"name": "accountnumber",
+				"type": "String"
+			},
+			{
+				"name": "accountratingcode",
+				"type": "String"
+			},
+			{
+				"name": "accountratingcodename",
+				"type": "String"
+			},
+			{
+				"name": "address1_addressid",
+				"type": "String"
+			},
+			{
+				"name": "address1_addresstypecode",
+				"type": "String"
+			},
+			{
+				"name": "address1_addresstypecodename",
+				"type": "String"
+			},
+			{
+				"name": "address1_city",
+				"type": "String"
+			},
+			{
+				"name": "address1_composite",
+				"type": "String"
+			},
+			{
+				"name": "address1_country",
+				"type": "String"
+			},
+			{
+				"name": "address1_county",
+				"type": "String"
+			},
+			{
+				"name": "address1_fax",
+				"type": "String"
+			},
+			{
+				"name": "address1_freighttermscode",
+				"type": "String"
+			},
+			{
+				"name": "address1_freighttermscodename",
+				"type": "String"
+			},
+			{
+				"name": "address1_latitude",
+				"type": "String"
+			},
+			{
+				"name": "address1_line1",
+				"type": "String"
+			},
+			{
+				"name": "address1_line2",
+				"type": "String"
+			},
+			{
+				"name": "address1_line3",
+				"type": "String"
+			},
+			{
+				"name": "address1_longitude",
+				"type": "String"
+			},
+			{
+				"name": "address1_name",
+				"type": "String"
+			},
+			{
+				"name": "address1_postalcode",
+				"type": "String"
+			},
+			{
+				"name": "address1_postofficebox",
+				"type": "String"
+			},
+			{
+				"name": "address1_primarycontactname",
+				"type": "String"
+			},
+			{
+				"name": "address1_shippingmethodcode",
+				"type": "String"
+			},
+			{
+				"name": "address1_shippingmethodcodename",
+				"type": "String"
+			},
+			{
+				"name": "address1_stateorprovince",
+				"type": "String"
+			},
+			{
+				"name": "address1_telephone1",
+				"type": "String"
+			},
+			{
+				"name": "address1_telephone2",
+				"type": "String"
+			},
+			{
+				"name": "address1_telephone3",
+				"type": "String"
+			},
+			{
+				"name": "address1_upszone",
+				"type": "String"
+			},
+			{
+				"name": "address1_utcoffset",
+				"type": "String"
+			},
+			{
+				"name": "address2_addressid",
+				"type": "String"
+			},
+			{
+				"name": "address2_addresstypecode",
+				"type": "String"
+			},
+			{
+				"name": "address2_addresstypecodename",
+				"type": "String"
+			},
+			{
+				"name": "address2_city",
+				"type": "String"
+			},
+			{
+				"name": "address2_composite",
+				"type": "String"
+			},
+			{
+				"name": "address2_country",
+				"type": "String"
+			},
+			{
+				"name": "address2_county",
+				"type": "String"
+			},
+			{
+				"name": "address2_fax",
+				"type": "String"
+			},
+			{
+				"name": "address2_freighttermscode",
+				"type": "String"
+			},
+			{
+				"name": "address2_freighttermscodename",
+				"type": "String"
+			},
+			{
+				"name": "address2_latitude",
+				"type": "String"
+			},
+			{
+				"name": "address2_line1",
+				"type": "String"
+			},
+			{
+				"name": "address2_line2",
+				"type": "String"
+			},
+			{
+				"name": "address2_line3",
+				"type": "String"
+			},
+			{
+				"name": "address2_longitude",
+				"type": "String"
+			},
+			{
+				"name": "address2_name",
+				"type": "String"
+			},
+			{
+				"name": "address2_postalcode",
+				"type": "String"
+			},
+			{
+				"name": "address2_postofficebox",
+				"type": "String"
+			},
+			{
+				"name": "address2_primarycontactname",
+				"type": "String"
+			},
+			{
+				"name": "address2_shippingmethodcode",
+				"type": "String"
+			},
+			{
+				"name": "address2_shippingmethodcodename",
+				"type": "String"
+			},
+			{
+				"name": "address2_stateorprovince",
+				"type": "String"
+			},
+			{
+				"name": "address2_telephone1",
+				"type": "String"
+			},
+			{
+				"name": "address2_telephone2",
+				"type": "String"
+			},
+			{
+				"name": "address2_telephone3",
+				"type": "String"
+			},
+			{
+				"name": "address2_upszone",
+				"type": "String"
+			},
+			{
+				"name": "address2_utcoffset",
+				"type": "String"
+			},
+			{
+				"name": "aging30",
+				"type": "String"
+			},
+			{
+				"name": "aging30_base",
+				"type": "String"
+			},
+			{
+				"name": "aging60",
+				"type": "String"
+			},
+			{
+				"name": "aging60_base",
+				"type": "String"
+			},
+			{
+				"name": "aging90",
+				"type": "String"
+			},
+			{
+				"name": "aging90_base",
+				"type": "String"
+			},
+			{
+				"name": "businesstypecode",
+				"type": "String"
+			},
+			{
+				"name": "businesstypecodename",
+				"type": "String"
+			},
+			{
+				"name": "createdby",
+				"type": "String"
+			},
+			{
+				"name": "createdbyexternalparty",
+				"type": "String"
+			},
+			{
+				"name": "createdbyexternalpartyname",
+				"type": "String"
+			},
+			{
+				"name": "createdbyname",
+				"type": "String"
+			},
+			{
+				"name": "createdon",
+				"type": "String"
+			},
+			{
+				"name": "createdonbehalfby",
+				"type": "String"
+			},
+			{
+				"name": "createdonbehalfbyname",
+				"type": "String"
+			},
+			{
+				"name": "creditlimit",
+				"type": "String"
+			},
+			{
+				"name": "creditlimit_base",
+				"type": "String"
+			},
+			{
+				"name": "creditonhold",
+				"type": "String"
+			},
+			{
+				"name": "creditonholdname",
+				"type": "String"
+			},
+			{
+				"name": "customersizecode",
+				"type": "String"
+			},
+			{
+				"name": "customersizecodename",
+				"type": "String"
+			},
+			{
+				"name": "customertypecode",
+				"type": "String"
+			},
+			{
+				"name": "customertypecodename",
+				"type": "String"
+			},
+			{
+				"name": "defaultpricelevelid",
+				"type": "String"
+			},
+			{
+				"name": "defaultpricelevelidname",
+				"type": "String"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "donotbulkemail",
+				"type": "String"
+			},
+			{
+				"name": "donotbulkemailname",
+				"type": "String"
+			},
+			{
+				"name": "donotbulkpostalmail",
+				"type": "String"
+			},
+			{
+				"name": "donotbulkpostalmailname",
+				"type": "String"
+			},
+			{
+				"name": "donotemail",
+				"type": "String"
+			},
+			{
+				"name": "donotemailname",
+				"type": "String"
+			},
+			{
+				"name": "donotfax",
+				"type": "String"
+			},
+			{
+				"name": "donotfaxname",
+				"type": "String"
+			},
+			{
+				"name": "donotphone",
+				"type": "String"
+			},
+			{
+				"name": "donotphonename",
+				"type": "String"
+			},
+			{
+				"name": "donotpostalmail",
+				"type": "String"
+			},
+			{
+				"name": "donotpostalmailname",
+				"type": "String"
+			},
+			{
+				"name": "donotsendmm",
+				"type": "String"
+			},
+			{
+				"name": "donotsendmmname",
+				"type": "String"
+			},
+			{
+				"name": "emailaddress1",
+				"type": "String"
+			},
+			{
+				"name": "emailaddress2",
+				"type": "String"
+			},
+			{
+				"name": "emailaddress3",
+				"type": "String"
+			},
+			{
+				"name": "entityimageid",
+				"type": "String"
+			},
+			{
+				"name": "exchangerate",
+				"type": "String"
+			},
+			{
+				"name": "fax",
+				"type": "String"
+			},
+			{
+				"name": "followemail",
+				"type": "String"
+			},
+			{
+				"name": "followemailname",
+				"type": "String"
+			},
+			{
+				"name": "ftpsiteurl",
+				"type": "String"
+			},
+			{
+				"name": "gsk_cdmcreatedon",
+				"type": "String"
+			},
+			{
+				"name": "gsk_cdmmodifiedon",
+				"type": "String"
+			},
+			{
+				"name": "gsk_cityid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_cityidname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_coldchainflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_coldchainflagname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_countyflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_countyid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_countyidname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_economictype",
+				"type": "String"
+			},
+			{
+				"name": "gsk_instgrade",
+				"type": "String"
+			},
+			{
+				"name": "gsk_instgradelevel",
+				"type": "String"
+			},
+			{
+				"name": "gsk_instgradelevelname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_instgradename",
+				"type": "String"
+			},
+			{
+				"name": "gsk_insttype",
+				"type": "String"
+			},
+			{
+				"name": "gsk_insttypel1",
+				"type": "String"
+			},
+			{
+				"name": "gsk_insttypel2",
+				"type": "String"
+			},
+			{
+				"name": "gsk_insttypel3",
+				"type": "String"
+			},
+			{
+				"name": "gsk_insttypel4",
+				"type": "String"
+			},
+			{
+				"name": "gsk_medicareflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_medicareflagname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_militaryflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_militaryflagname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_provinceid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_provinceidname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_specialflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_specialflagname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_tnprflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_tnprflagname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_uscc",
+				"type": "String"
+			},
+			{
+				"name": "importsequencenumber",
+				"type": "String"
+			},
+			{
+				"name": "industrycode",
+				"type": "String"
+			},
+			{
+				"name": "industrycodename",
+				"type": "String"
+			},
+			{
+				"name": "lastonholdtime",
+				"type": "String"
+			},
+			{
+				"name": "lastusedincampaign",
+				"type": "String"
+			},
+			{
+				"name": "marketcap",
+				"type": "String"
+			},
+			{
+				"name": "marketcap_base",
+				"type": "String"
+			},
+			{
+				"name": "marketingonly",
+				"type": "String"
+			},
+			{
+				"name": "marketingonlyname",
+				"type": "String"
+			},
+			{
+				"name": "masterid",
+				"type": "String"
+			},
+			{
+				"name": "masteridname",
+				"type": "String"
+			},
+			{
+				"name": "merged",
+				"type": "String"
+			},
+			{
+				"name": "mergedname",
+				"type": "String"
+			},
+			{
+				"name": "modifiedby",
+				"type": "String"
+			},
+			{
+				"name": "modifiedbyexternalparty",
+				"type": "String"
+			},
+			{
+				"name": "modifiedbyexternalpartyname",
+				"type": "String"
+			},
+			{
+				"name": "modifiedbyname",
+				"type": "String"
+			},
+			{
+				"name": "modifiedon",
+				"type": "String"
+			},
+			{
+				"name": "modifiedonbehalfby",
+				"type": "String"
+			},
+			{
+				"name": "modifiedonbehalfbyname",
+				"type": "String"
+			},
+			{
+				"name": "msdyn_gdproptout",
+				"type": "String"
+			},
+			{
+				"name": "msdyn_gdproptoutname",
+				"type": "String"
+			},
+			{
+				"name": "msdyn_salesaccelerationinsightid",
+				"type": "String"
+			},
+			{
+				"name": "msdyn_salesaccelerationinsightidname",
+				"type": "String"
+			},
+			{
+				"name": "msdyn_segmentid",
+				"type": "String"
+			},
+			{
+				"name": "msdyn_segmentidname",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "numberofemployees",
+				"type": "String"
+			},
+			{
+				"name": "onholdtime",
+				"type": "String"
+			},
+			{
+				"name": "opendeals",
+				"type": "String"
+			},
+			{
+				"name": "opendeals_date",
+				"type": "String"
+			},
+			{
+				"name": "opendeals_state",
+				"type": "String"
+			},
+			{
+				"name": "openrevenue",
+				"type": "String"
+			},
+			{
+				"name": "openrevenue_base",
+				"type": "String"
+			},
+			{
+				"name": "openrevenue_date",
+				"type": "String"
+			},
+			{
+				"name": "openrevenue_state",
+				"type": "String"
+			},
+			{
+				"name": "originatingleadid",
+				"type": "String"
+			},
+			{
+				"name": "originatingleadidname",
+				"type": "String"
+			},
+			{
+				"name": "overriddencreatedon",
+				"type": "String"
+			},
+			{
+				"name": "ownerid",
+				"type": "String"
+			},
+			{
+				"name": "owneridname",
+				"type": "String"
+			},
+			{
+				"name": "owneridtype",
+				"type": "String"
+			},
+			{
+				"name": "ownershipcode",
+				"type": "String"
+			},
+			{
+				"name": "ownershipcodename",
+				"type": "String"
+			},
+			{
+				"name": "owningbusinessunit",
+				"type": "String"
+			},
+			{
+				"name": "owningbusinessunitname",
+				"type": "String"
+			},
+			{
+				"name": "owningteam",
+				"type": "String"
+			},
+			{
+				"name": "owningteamname",
+				"type": "String"
+			},
+			{
+				"name": "owninguser",
+				"type": "String"
+			},
+			{
+				"name": "owningusername",
+				"type": "String"
+			},
+			{
+				"name": "parentaccountid",
+				"type": "String"
+			},
+			{
+				"name": "parentaccountidname",
+				"type": "String"
+			},
+			{
+				"name": "participatesinworkflow",
+				"type": "String"
+			},
+			{
+				"name": "participatesinworkflowname",
+				"type": "String"
+			},
+			{
+				"name": "paymenttermscode",
+				"type": "String"
+			},
+			{
+				"name": "paymenttermscodename",
+				"type": "String"
+			},
+			{
+				"name": "preferredappointmentdaycode",
+				"type": "String"
+			},
+			{
+				"name": "preferredappointmentdaycodename",
+				"type": "String"
+			},
+			{
+				"name": "preferredappointmenttimecode",
+				"type": "String"
+			},
+			{
+				"name": "preferredappointmenttimecodename",
+				"type": "String"
+			},
+			{
+				"name": "preferredcontactmethodcode",
+				"type": "String"
+			},
+			{
+				"name": "preferredcontactmethodcodename",
+				"type": "String"
+			},
+			{
+				"name": "preferredequipmentid",
+				"type": "String"
+			},
+			{
+				"name": "preferredequipmentidname",
+				"type": "String"
+			},
+			{
+				"name": "preferredserviceid",
+				"type": "String"
+			},
+			{
+				"name": "preferredserviceidname",
+				"type": "String"
+			},
+			{
+				"name": "preferredsystemuserid",
+				"type": "String"
+			},
+			{
+				"name": "preferredsystemuseridname",
+				"type": "String"
+			},
+			{
+				"name": "primarycontactid",
+				"type": "String"
+			},
+			{
+				"name": "primarycontactidname",
+				"type": "String"
+			},
+			{
+				"name": "primarysatoriid",
+				"type": "String"
+			},
+			{
+				"name": "primarytwitterid",
+				"type": "String"
+			},
+			{
+				"name": "processid",
+				"type": "String"
+			},
+			{
+				"name": "revenue",
+				"type": "String"
+			},
+			{
+				"name": "revenue_base",
+				"type": "String"
+			},
+			{
+				"name": "sharesoutstanding",
+				"type": "String"
+			},
+			{
+				"name": "shippingmethodcode",
+				"type": "String"
+			},
+			{
+				"name": "shippingmethodcodename",
+				"type": "String"
+			},
+			{
+				"name": "sic",
+				"type": "String"
+			},
+			{
+				"name": "slaid",
+				"type": "String"
+			},
+			{
+				"name": "slaidname",
+				"type": "String"
+			},
+			{
+				"name": "slainvokedid",
+				"type": "String"
+			},
+			{
+				"name": "slainvokedidname",
+				"type": "String"
+			},
+			{
+				"name": "stageid",
+				"type": "String"
+			},
+			{
+				"name": "statecode",
+				"type": "String"
+			},
+			{
+				"name": "statecodename",
+				"type": "String"
+			},
+			{
+				"name": "statuscode",
+				"type": "String"
+			},
+			{
+				"name": "statuscodename",
+				"type": "String"
+			},
+			{
+				"name": "stockexchange",
+				"type": "String"
+			},
+			{
+				"name": "teamsfollowed",
+				"type": "String"
+			},
+			{
+				"name": "telephone1",
+				"type": "String"
+			},
+			{
+				"name": "telephone2",
+				"type": "String"
+			},
+			{
+				"name": "telephone3",
+				"type": "String"
+			},
+			{
+				"name": "territorycode",
+				"type": "String"
+			},
+			{
+				"name": "territorycodename",
+				"type": "String"
+			},
+			{
+				"name": "territoryid",
+				"type": "String"
+			},
+			{
+				"name": "territoryidname",
+				"type": "String"
+			},
+			{
+				"name": "tickersymbol",
+				"type": "String"
+			},
+			{
+				"name": "timespentbymeonemailandmeetings",
+				"type": "String"
+			},
+			{
+				"name": "timezoneruleversionnumber",
+				"type": "String"
+			},
+			{
+				"name": "transactioncurrencyid",
+				"type": "String"
+			},
+			{
+				"name": "transactioncurrencyidname",
+				"type": "String"
+			},
+			{
+				"name": "traversedpath",
+				"type": "String"
+			},
+			{
+				"name": "utcconversiontimezonecode",
+				"type": "String"
+			},
+			{
+				"name": "versionnumber",
+				"type": "String"
+			},
+			{
+				"name": "websiteurl",
+				"type": "String"
+			},
+			{
+				"name": "yominame",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

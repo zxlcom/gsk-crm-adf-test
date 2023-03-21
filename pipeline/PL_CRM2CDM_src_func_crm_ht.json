@@ -1,0 +1,469 @@
+{
+	"name": "PL_CRM2CDM_src_func_crm_ht",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_from_gsk_meeting",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "gsk_meetingid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_meetingid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_meetingname",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_meetingname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ownerid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ownerid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_positionid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_positionid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_accountid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_accountid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_meetingtype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_meetingtype",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_eventtype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_eventtype",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_location",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_location",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_address",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_address",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_startdate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_startdate",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_enddate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_enddate",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinlatitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinlatitude",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinlongitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinlongitude",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_hospitallatitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_hospitallatitude",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_hospitallongitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_hospitallongitude",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_checkinrange",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_checkinrange",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_isvalidcheckin",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_isvalidcheckin",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_coachingflag",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_coachingflag",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_coachingmanagerid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_coachingmanagerid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_attendcount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_attendcount",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_attendtargetcount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_attendtargetcount",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_attendeesummary",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_attendeesummary",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_invitedcount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_invitedcount",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_invitedtargetcount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_invitedtargetcount",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_islocked",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_islocked",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_ismeal",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_ismeal",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gsk_speakertype",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gsk_speakertype",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "createdby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "createdby",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "createdon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "createdon",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedby",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "modifiedby",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedon",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "modifiedon",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statecode",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "statuscode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "statuscode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "source_gsk_meeting_dataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "pre_crm_gsk_meeting_dataset",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-03-08T08:45:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

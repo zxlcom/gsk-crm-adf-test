@@ -1,0 +1,74 @@
+{
+	"name": "pre_crm_gsk_calldetail_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "gsk_calldetailid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_callid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_crmbrandid",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_priority",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_haskeymessage",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_hasmediaplay",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_duration",
+				"type": "varchar"
+			},
+			{
+				"name": "gsk_selfevaluation",
+				"type": "varchar"
+			},
+			{
+				"name": "createdby",
+				"type": "varchar"
+			},
+			{
+				"name": "createdon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "modifiedby",
+				"type": "varchar"
+			},
+			{
+				"name": "modifiedon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "statecode",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_crm_gsk_calldetail"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

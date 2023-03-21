@@ -1,0 +1,259 @@
+{
+	"name": "source_gsk_call_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "source_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "gsk_call.xlsx",
+				"container": "mock-crm-dataverse"
+			},
+			"sheetIndex": 0,
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "createdby",
+				"type": "String"
+			},
+			{
+				"name": "createdbyname",
+				"type": "String"
+			},
+			{
+				"name": "createdon",
+				"type": "String"
+			},
+			{
+				"name": "createdonbehalfby",
+				"type": "String"
+			},
+			{
+				"name": "createdonbehalfbyname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_accountnumber",
+				"type": "String"
+			},
+			{
+				"name": "gsk_callid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_calltype",
+				"type": "String"
+			},
+			{
+				"name": "gsk_calltypename",
+				"type": "String"
+			},
+			{
+				"name": "gsk_checkindate",
+				"type": "String"
+			},
+			{
+				"name": "gsk_checkinlatitude",
+				"type": "String"
+			},
+			{
+				"name": "gsk_checkinlongitude",
+				"type": "String"
+			},
+			{
+				"name": "gsk_checkinrange",
+				"type": "String"
+			},
+			{
+				"name": "gsk_checkinstate",
+				"type": "String"
+			},
+			{
+				"name": "gsk_checkinstatename",
+				"type": "String"
+			},
+			{
+				"name": "gsk_coachingflag",
+				"type": "String"
+			},
+			{
+				"name": "gsk_coachingflagname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_coachingmanagerid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_coachingmanageridname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_customerid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_customeridname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_customeridtype",
+				"type": "String"
+			},
+			{
+				"name": "gsk_datetime",
+				"type": "String"
+			},
+			{
+				"name": "gsk_duration",
+				"type": "String"
+			},
+			{
+				"name": "gsk_hospitallatitude",
+				"type": "String"
+			},
+			{
+				"name": "gsk_hospitallongitude",
+				"type": "String"
+			},
+			{
+				"name": "gsk_isvalidcheckin",
+				"type": "String"
+			},
+			{
+				"name": "gsk_isvalidcheckinname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_name",
+				"type": "String"
+			},
+			{
+				"name": "gsk_parentcallid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_parentcallidname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_positionid",
+				"type": "String"
+			},
+			{
+				"name": "gsk_positionidname",
+				"type": "String"
+			},
+			{
+				"name": "gsk_product",
+				"type": "String"
+			},
+			{
+				"name": "gsk_specialty",
+				"type": "String"
+			},
+			{
+				"name": "gsk_submitdate",
+				"type": "String"
+			},
+			{
+				"name": "importsequencenumber",
+				"type": "String"
+			},
+			{
+				"name": "modifiedby",
+				"type": "String"
+			},
+			{
+				"name": "modifiedbyname",
+				"type": "String"
+			},
+			{
+				"name": "modifiedon",
+				"type": "String"
+			},
+			{
+				"name": "modifiedonbehalfby",
+				"type": "String"
+			},
+			{
+				"name": "modifiedonbehalfbyname",
+				"type": "String"
+			},
+			{
+				"name": "overriddencreatedon",
+				"type": "String"
+			},
+			{
+				"name": "ownerid",
+				"type": "String"
+			},
+			{
+				"name": "owneridname",
+				"type": "String"
+			},
+			{
+				"name": "owneridtype",
+				"type": "String"
+			},
+			{
+				"name": "owningbusinessunit",
+				"type": "String"
+			},
+			{
+				"name": "owningbusinessunitname",
+				"type": "String"
+			},
+			{
+				"name": "owningteam",
+				"type": "String"
+			},
+			{
+				"name": "owningteamname",
+				"type": "String"
+			},
+			{
+				"name": "owninguser",
+				"type": "String"
+			},
+			{
+				"name": "owningusername",
+				"type": "String"
+			},
+			{
+				"name": "statecode",
+				"type": "String"
+			},
+			{
+				"name": "statecodename",
+				"type": "String"
+			},
+			{
+				"name": "statuscode",
+				"type": "String"
+			},
+			{
+				"name": "statuscodename",
+				"type": "String"
+			},
+			{
+				"name": "timezoneruleversionnumber",
+				"type": "String"
+			},
+			{
+				"name": "utcconversiontimezonecode",
+				"type": "String"
+			},
+			{
+				"name": "versionnumber",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

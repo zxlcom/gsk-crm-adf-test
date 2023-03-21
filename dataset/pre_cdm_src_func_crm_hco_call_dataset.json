@@ -1,0 +1,115 @@
+{
+	"name": "pre_cdm_src_func_crm_hco_call_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stage_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "hco_call_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "owner_mudid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "territory_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "inst_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "call_type",
+				"type": "varchar"
+			},
+			{
+				"name": "checkin_status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "check_in_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "check_in_longitude",
+				"type": "varchar"
+			},
+			{
+				"name": "check_in_latitude",
+				"type": "varchar"
+			},
+			{
+				"name": "hospital_longitude",
+				"type": "varchar"
+			},
+			{
+				"name": "hospital_latitude",
+				"type": "varchar"
+			},
+			{
+				"name": "checkin_range",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gps_valid",
+				"type": "varchar"
+			},
+			{
+				"name": "hco_call_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hco_call_duration",
+				"type": "varchar"
+			},
+			{
+				"name": "submit_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "create_by",
+				"type": "varchar"
+			},
+			{
+				"name": "create_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "last_update_by",
+				"type": "varchar"
+			},
+			{
+				"name": "last_update_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "is_active",
+				"type": "varchar"
+			},
+			{
+				"name": "hco_call_status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "etl_checksum",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pre_cdm_src_func_crm_hco_call"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
