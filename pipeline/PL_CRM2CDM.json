@@ -1,0 +1,23 @@
+{
+	"name": "PL_CRM2CDM",
+	"properties": {
+		"activities": [
+			{
+				"name": "execute_pre_processing_pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_CRM2CDM_pre_processing",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-03-08T12:45:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
